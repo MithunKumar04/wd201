@@ -1,0 +1,7 @@
+node_modules
+eslint.config.mjs
+<<<<<<< HEAD
+package-lock.json
+=======
+package-lock.json
+>>>>>>> 441bd47e548ea988c485c16769252b6233172787
