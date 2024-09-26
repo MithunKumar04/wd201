@@ -66,6 +66,7 @@ const todoList = () => {
         {
             str=str.concat(element1,"\n");
         })
+        str=str.concat("\n");
     return str;
     }
   
