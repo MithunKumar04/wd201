@@ -16,8 +16,12 @@ export default [
         beforeEach: "readonly",
         afterEach: "readonly",
         beforeAll: "readonly",
+        process: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
       },
     },
+
     plugins: { jest },
     rules: { ...jest.configs.recommended.rules },
   },
