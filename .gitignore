@@ -6,4 +6,10 @@ node_modules
 /package-lock.json
 >>>>>>> 441bd47e548ea988c485c16769252b6233172787
 
-todo-cli\.husky\_
+todo-cli/.husky/_
+todo-cli/config
+todo-cli/seeders
+todo-cli/.eslintignore
+todo-cli/index.js
+todo-cli/connectDB.js
+todo-cli/TodoModel.js
