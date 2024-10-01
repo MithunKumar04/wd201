@@ -15,15 +15,18 @@ module.exports = (sequelize, DataTypes) => {
       console.log("My Todo list \n");
 
       console.log("Overdue");
-      console.log(await this.overdue());
+      const val = await this.overdue();
+      console.log(val.map((todo) => todo.displayableString()).join("\n"));
       console.log("\n");
 
       console.log("Due Today");
-      console.log(await this.dueToday());
+      const val1 = await this.dueToday();
+      console.log(val1.map((todo) => todo.displayableString()).join("\n"));
       console.log("\n");
 
       console.log("Due Later");
-      console.log(await this.dueLater());
+      const val2 = await this.dueLater();
+      console.log(val2.map((todo) => todo.displayableString()).join("\n"));
     }
 
     static async overdue() {
@@ -34,11 +37,9 @@ module.exports = (sequelize, DataTypes) => {
           where: {
             dueDate: { [Op.lt]: today },
           },
+          order: [["id", "ASC"]],
         });
-        const todoList = todos
-          .map((todo) => todo.displayableString())
-          .join("\n");
-        return todoList;
+        return todos;
       } catch (error) {
         console.error(error);
       }
@@ -50,11 +51,9 @@ module.exports = (sequelize, DataTypes) => {
           where: {
             dueDate: new Date(),
           },
+          order: [["id", "ASC"]],
         });
-        const todoList = todos
-          .map((todo) => todo.displayableString())
-          .join("\n");
-        return todoList;
+        return todos;
       } catch (error) {
         console.error(error);
       }
@@ -68,11 +67,9 @@ module.exports = (sequelize, DataTypes) => {
           where: {
             dueDate: { [Op.gt]: today },
           },
+          order: [["id", "ASC"]],
         });
-        const todoList = todos
-          .map((todo) => todo.displayableString())
-          .join("\n");
-        return todoList;
+        return todos;
       } catch (error) {
         console.error(error);
       }
