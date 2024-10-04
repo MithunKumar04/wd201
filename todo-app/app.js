@@ -18,7 +18,6 @@ app.get("/todos", async function (_request, response) {
   // response.send(todos)
   try{
     const todo=await Todo.findAll();
-    console.log(todo);
     return response.json(todo);
 
 
@@ -33,7 +32,6 @@ app.get("/todos", async function (_request, response) {
 app.get("/todos/:id", async function (request, response) {
   try {
     const todo = await Todo.findByPk(request.params.id);
-    console.log(todo);
     if (!todo) {
       return response.status(404).send({ error: "Todo not found" });
     }
