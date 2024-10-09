@@ -16,11 +16,7 @@
     "port": 5000
   },
   "production": {
-    "username": "postgres",
-    "password": "mithun007",
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "port": 5000
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
   }
 }
