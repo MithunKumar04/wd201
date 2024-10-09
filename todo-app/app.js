@@ -5,8 +5,20 @@ const bodyParser = require("body-parser");
 const { where } = require("sequelize");
 app.use(bodyParser.json());
 
-app.get("/", function (request, response) {
-  response.send("Hello World");
+
+
+app.set("view engine",'ejs')
+
+app.get("/", async (request, response) =>{
+  const allTodo=await Todo.getTodo();
+  if(request.accepts("html"))
+  {
+    response.render("index",{allTodo})
+  }
+  else
+  {
+    request.json(allTodo)
+  }
 });
 
 app.get("/todos", async function (_request, response) {
