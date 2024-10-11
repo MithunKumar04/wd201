@@ -4,19 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <%- include('header.ejs') %>
-    <h1>Welcome to Todo Manager</h1>
-
-    <table>
-        <% for(var i=0;i < allTodo.length;i++) { %>
-        <tr>
-            <td>
-                <%= allTodo[i].title %>
-            </td>
-        </tr>
-        <% } %>
-    </table>
+    <%- include('todo.ejs') %>
+    <%- include('footer.ejs') %>
 </body>
 </html>

@@ -3,6 +3,9 @@ const app = express();
 const { Todo } = require("./models");
 const bodyParser = require("body-parser");
 const { where } = require("sequelize");
+const path =require('path')
+
+app.use(express.static(path.join(__dirname,'public')))
 app.use(bodyParser.json());
 
 
